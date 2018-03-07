@@ -1,0 +1,7 @@
+package Fila;
+
+public class EFilaVazia extends Exception {
+	public EFilaVazia(String msg){
+		super(msg);
+	}
+}

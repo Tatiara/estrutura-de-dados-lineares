@@ -1,0 +1,19 @@
+package PilhaListaLigada;
+
+public class No {
+	private Object elemento;//data
+	private No proximo;//netx
+	public Object getElemento(){
+		return elemento;
+	}
+	public void setElemento(Object o){
+		elemento = o;
+	}
+	public No getProximo() {
+		return proximo;
+	}
+	public void setProximo(No proximo) {
+		this.proximo = proximo;
+	}
+	
+}
