@@ -5,15 +5,14 @@ public class PilhaListaLigada implements IPilha{
 	No t = null;
 	
 	@Override	
-	public int size() throws EPilhaVazia {
+	public int size() {
 		No controle = t;
 		int count = 0;		
 		while(controle != null){
 			count++;
 			controle = controle.getProximo();
 		}
-		return count;
-		
+		return count;		
 	}
 
 	@Override
@@ -45,9 +44,9 @@ public class PilhaListaLigada implements IPilha{
 			throw new EPilhaVazia("A Pilha está vazia");
 		t = controle.getProximo();
 		return controle.getElemento();
-	}
+	} 
 	
-	public void Mostar(){
+	public void print(){
 		No controle = t;
 		while(controle != null){
 			System.out.println("Elementos:" + controle.getElemento());
@@ -55,3 +54,4 @@ public class PilhaListaLigada implements IPilha{
 		}
 	}
 }
+  

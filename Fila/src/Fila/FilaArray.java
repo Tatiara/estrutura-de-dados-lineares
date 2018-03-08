@@ -56,7 +56,7 @@ public class FilaArray implements iFila {
         	
     }
     
-    public void Mostrar() {
+    public void print() {
 		for(int a = i; a != f ; a = (a + 1) % elementos.length){
 			System.out.println("Elementos: " + elementos[a]);			
 		}

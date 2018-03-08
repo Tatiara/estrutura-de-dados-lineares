@@ -12,7 +12,7 @@ public class PilhaLLMain {
 		System.out.println(pilha.top());
 		System.out.println(pilha.size());
 		System.out.println(pilha.isEmpty() ? "está vazia" : "não está vazia");
-		pilha.Mostar();
+		pilha.print();
 	}
 
 }

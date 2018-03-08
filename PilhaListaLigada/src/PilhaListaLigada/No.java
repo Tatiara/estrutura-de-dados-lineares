@@ -1,8 +1,8 @@
 package PilhaListaLigada;
 
 public class No {
-	private Object elemento;//data
-	private No proximo;//netx
+	private Object elemento;
+	private No proximo;
 	public Object getElemento(){
 		return elemento;
 	}

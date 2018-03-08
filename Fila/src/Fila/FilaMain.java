@@ -10,11 +10,12 @@ public class FilaMain {
 		fila.queue(02);
 		fila.queue(28);
 		//fila.Mostrar();
+		//fila.deworming();
+		//fila.deworming();
+		//fila.deworming();
 		fila.deworming();
-		fila.deworming();
-		fila.deworming();
-		fila.deworming();
-		fila.Mostrar();
+		System.out.println("tamanho " + fila.size());
+		fila.print();
 	}
 
 }
