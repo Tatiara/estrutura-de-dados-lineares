@@ -6,12 +6,12 @@ public class FilaLLMain {
 		FilaListaLigada fila = new FilaListaLigada();
 		fila.queue(20);
 		fila.queue(02);
-		fila.deworming();
+		fila.dequeue();
 		fila.queue(15);
 		fila.queue(26);
-//		fila.deworming();
-//		fila.deworming();
-//		fila.deworming();
+//		fila.dequeue();
+//		fila.dequeue();
+//		fila.dequeue();
 		System.out.println(fila.size());
 		fila.print();
 	}

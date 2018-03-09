@@ -15,7 +15,7 @@ public class FilaListaLigada implements iFila{
 	}
 
 	@Override
-	public Object begin() throws EFilaVazia {
+	public Object first() throws EFilaVazia {
 		if (isEmpty())
 			throw new EFilaVazia("A fila está vazia");
 		return i;
@@ -38,7 +38,7 @@ public class FilaListaLigada implements iFila{
 	}
 	
 	@Override
-	public Object deworming() throws EFilaVazia {
+	public Object dequeue() throws EFilaVazia {
 		No controle = i;
 		if (isEmpty())
 			throw new EFilaVazia("A fila está vazia");

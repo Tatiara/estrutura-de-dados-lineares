@@ -3,16 +3,11 @@ package PilhaListaLigada;
 public class PilhaListaLigada implements IPilha{
 	
 	No t = null;
+	int qtd;
 	
 	@Override	
 	public int size() {
-		No controle = t;
-		int count = 0;		
-		while(controle != null){
-			count++;
-			controle = controle.getProximo();
-		}
-		return count;		
+		return qtd;		
 	}
 
 	@Override
@@ -33,7 +28,8 @@ public class PilhaListaLigada implements IPilha{
 		No controle = new No();
 		controle.setProximo(t);
 		controle.setElemento(o);
-		t = controle;			
+		t = controle;
+		qtd++;
 	}
 
 	@Override
@@ -43,6 +39,7 @@ public class PilhaListaLigada implements IPilha{
 		if(isEmpty())
 			throw new EPilhaVazia("A Pilha está vazia");
 		t = controle.getProximo();
+		qtd--;
 		return controle.getElemento();
 	} 
 	

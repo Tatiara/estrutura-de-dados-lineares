@@ -3,9 +3,9 @@ package FilaListaLigada;
 public interface iFila {
 	public int size();
 	public boolean isEmpty();
-	public Object begin()
+	public Object first()
 		throws EFilaVazia;
 	public void queue(Object o);
-	public Object deworming()
+	public Object dequeue()
 		throws EFilaVazia;
 }

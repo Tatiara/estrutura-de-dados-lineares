@@ -21,7 +21,7 @@ public class FilaArray implements iFila {
     }
 
     @Override
-    public Object begin() throws EFilaVazia {
+    public Object first() throws EFilaVazia {
         if(isEmpty())
         	throw new EFilaVazia("A Fila está vazia");
         return i;
@@ -33,8 +33,10 @@ public class FilaArray implements iFila {
     		int tamAux = elementos.length*2;
     		Object[] temp = new Object[tamAux];
     		System.out.println(tamAux);
-    		for (int a = 0; a < elementos.length; a++) {
+    		for (int a = i; a != f; a = (i+1)%elementos.length) {
 				temp[a] = elementos[a];
+				System.out.println("dentro do for " + temp[a]);
+				break;
 			}
     		elementos = temp;
     		temp = null;
@@ -44,7 +46,7 @@ public class FilaArray implements iFila {
     }
 
     @Override
-    public Object deworming() throws EFilaVazia {
+    public Object dequeue() throws EFilaVazia {
         Object o;
     	if (isEmpty())
         	throw new EFilaVazia("A Fila está Vazia");
