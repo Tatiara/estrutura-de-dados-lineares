@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class SequenciaArray implements iSequencia {
 	
 	private No[] elementos;
-	private int qnt, f;
+	private int qnt;
 
 	@Override
 	public int size() {
@@ -124,17 +124,25 @@ public class SequenciaArray implements iSequencia {
 	}
 
 	@Override
-	public void insertFirst(No o) {
-		// TODO Auto-generated method stub
-		
+	public void insertFirst(No o) throws ESequenciaVazia {
+		if (isEmpty()) throw new ESequenciaVazia("A Sequencia está Vazia!");
+		No temp = null;
 	}
 
 	@Override
 	public void insertLast(No o) {
-		// TODO Auto-generated method stub
-		
+		if(size() == (elementos.length - 1)){
+			//caso o array esteja cheio, vai duplicar 
+    		int tamAux = elementos.length*2;
+    		No[] arrayTemp = new No[tamAux];
+    		arrayTemp = Arrays.copyOf(elementos, elementos.length);
+    		elementos=arrayTemp;
+    		arrayTemp=null;
+    		
+			int f = elementos.length+1;
+			elementos[f] = o;
+		}
 	}
-
 	@Override
 	public void remove(No n) {
 		// TODO Auto-generated method stub
@@ -152,7 +160,4 @@ public class SequenciaArray implements iSequencia {
 		
 		return n.getRank();
 	}
-	
-	
-
 }

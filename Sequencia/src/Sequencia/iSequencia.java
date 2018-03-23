@@ -20,7 +20,7 @@ public interface iSequencia {
 	public void swapElements(No n, No q);//"ok"
 	public void insertBefore(No n,Object o);//"ok"
 	public void insertAfter(No n,Object  o);//"ok"
-	public void insertFirst(No o);//"ok"
+	public void insertFirst(No o) throws ESequenciaVazia;//"ok"
 	public void insertLast(No o);//"ok"
 	public void remove(No n);//"ok"
 	
