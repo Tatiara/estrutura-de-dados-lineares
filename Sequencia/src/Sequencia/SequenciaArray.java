@@ -124,9 +124,23 @@ public class SequenciaArray implements iSequencia {
 	}
 
 	@Override
-	public void insertFirst(No o) throws ESequenciaVazia {
-		if (isEmpty()) throw new ESequenciaVazia("A Sequencia está Vazia!");
-		No temp = null;
+	public void insertFirst(No o) {
+		No[] aux = null;
+		//if (isEmpty()) throw new ESequenciaVazia("A Sequencia está Vazia!");
+		if (size() == (elementos.length -1)){
+			int tamAux = elementos.length*2;
+			No[] arrayTemp = new No[tamAux];
+			//arrayTemp[0] = o;
+			arrayTemp = Arrays.copyOf(elementos, elementos.length);
+			elemento=arrayTemp;
+			arrayTemp=null;
+		}
+
+		aux[0] = o;
+		System.arraycopy(elementos, 0, aux, 1, elementos.length);
+
+		elementos = aux;
+		aux = null; 
 	}
 
 	@Override
@@ -138,26 +152,27 @@ public class SequenciaArray implements iSequencia {
     		arrayTemp = Arrays.copyOf(elementos, elementos.length);
     		elementos=arrayTemp;
     		arrayTemp=null;
-    		
-			int f = elementos.length+1;
-			elementos[f] = o;
 		}
+
+		int f = elementos.length+1;
+		elementos[f] = o;
 	}
 	@Override
-	public void remove(No n) {
-		// TODO Auto-generated method stub
-		
+	public void remove(No n) throws ESequenciaVazia {
+		if (isEmpty) 
+			throw new ESequenciaVazia("A Sequência está Vazia!"); 
+		for (int i; i < size() ; i++) {
+			if
+		}
 	}
 
 	@Override
 	public No atRank(int r) {
-		
 		return elementos[r];
 	}
 
 	@Override
 	public int rankOf(No n) {
-		
 		return n.getRank();
 	}
 }
