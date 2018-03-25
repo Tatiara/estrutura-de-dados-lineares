@@ -113,20 +113,82 @@ public class SequenciaArray implements iSequencia {
 
 	@Override
 	public void insertBefore(No n, Object o) {
-		// TODO Auto-generated method stub
+		No[] aux = null;
+		
+		//checa se o array está cheio e entao duplica
+		if (size() == (elementos.length -1)){
+
+			int tamAux = elementos.length*2;
+
+			No[] arrayTemp = new No[tamAux];
+
+			//arrayTemp[0] = o;
+
+			arrayTemp = Arrays.copyOf(elementos, elementos.length);
+
+			elementos=arrayTemp;
+
+			arrayTemp=null;
+
+		}
+
+		System.arraycopy(elementos, 0, aux, 0, n.getRank()-1); //copia ate o anterior de n
+		aux[n.getRank()] = (No) o;
+		System.arraycopy(elementos, n.getRank(), aux, n.getRank()+1, elementos.length - n.getRank() );		elementos = aux;
+		aux = null;
 		
 	}
+	
 
 	@Override
 	public void insertAfter(No n, Object o) {
-		// TODO Auto-generated method stub
+No[] aux = null;
+		
+		//checa se o array está cheio e entao duplica
+		if (size() == (elementos.length -1)){
+
+			int tamAux = elementos.length*2;
+
+			No[] arrayTemp = new No[tamAux];
+
+			//arrayTemp[0] = o;
+
+			arrayTemp = Arrays.copyOf(elementos, elementos.length);
+
+			elementos=arrayTemp;
+
+			arrayTemp=null;
+
+		}
+		//System.arraycopy(elementos, 0, aux, 0, n.getRank()+1);
+		System.arraycopy(elementos, 0, aux, 0, n.getRank());//copia ate n
+		aux[n.getRank()+1] = (No) o;
+		System.arraycopy(elementos, n.getRank()+1, aux, n.getRank()+2, elementos.length - n.getRank() ); //preencher o resto do array
+		elementos = aux;
+		aux = null;
+		
+
 		
 	}
 
 	@Override
-	public void insertFirst(No o) throws ESequenciaVazia {
-		if (isEmpty()) throw new ESequenciaVazia("A Sequencia está Vazia!");
-		No temp = null;
+	public void insertFirst(No o) {
+		No[] aux = null;
+		//if (isEmpty()) throw new ESequenciaVazia("A Sequencia está Vazia!");
+		if (size() == (elementos.length -1)){
+			int tamAux = elementos.length*2;
+			No[] arrayTemp = new No[tamAux];
+			//arrayTemp[0] = o;
+			arrayTemp = Arrays.copyOf(elementos, elementos.length);
+			elementos=arrayTemp;
+			arrayTemp=null;
+		}
+
+		aux[0] = o;
+		System.arraycopy(elementos, 0, aux, 1, elementos.length);
+
+		elementos = aux;
+		aux = null; 
 	}
 
 	@Override
@@ -138,26 +200,27 @@ public class SequenciaArray implements iSequencia {
     		arrayTemp = Arrays.copyOf(elementos, elementos.length);
     		elementos=arrayTemp;
     		arrayTemp=null;
-    		
-			int f = elementos.length+1;
-			elementos[f] = o;
 		}
+
+		int f = elementos.length+1;
+		elementos[f] = o;
 	}
 	@Override
-	public void remove(No n) {
-		// TODO Auto-generated method stub
-		
+	public void remove(No n) throws ESequenciaVazia {
+		if (isEmpty) 
+			throw new ESequenciaVazia("A Sequência está Vazia!"); 
+		for (int i; i < size() ; i++) {
+			if
+		}
 	}
 
 	@Override
 	public No atRank(int r) {
-		
 		return elementos[r];
 	}
 
 	@Override
 	public int rankOf(No n) {
-		
 		return n.getRank();
 	}
 }
