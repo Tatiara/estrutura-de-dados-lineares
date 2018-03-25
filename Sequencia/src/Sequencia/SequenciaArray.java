@@ -18,7 +18,7 @@ public class SequenciaArray implements iSequencia {
 	@Override
 	public No elemAtRank(int r) throws ESequenciaVazia {
 		if (isEmpty()) 
-			throw new ESequenciaVazia("A Sequência está vazia!");
+			throw new ESequenciaVazia("A SequÃªncia estÃ¡ vazia!");
 		for(int i=0; i<elementos.length; i++){
 			if(i==r){
 				return elementos[i];
@@ -38,7 +38,7 @@ public class SequenciaArray implements iSequencia {
 	public void insertAtRank(int r, Object o) {
 		No temp = null;
 		No aux = null;
-		if(r >=0 || r<= size()-1){//verifica se ele é valido	
+		if(r >=0 || r<= size()-1){//verifica se ele Ã© valido	
 			for(int i = 0; i < elementos.length; i++){
 				if (i == r){
 					temp = elementos[i];
@@ -113,26 +113,74 @@ public class SequenciaArray implements iSequencia {
 
 	@Override
 	public void insertBefore(No n, Object o) {
-		// TODO Auto-generated method stub
+		No[] aux = null;
+		
+		//checa se o array estÃ¡ cheio e entao duplica
+		if (size() == (elementos.length -1)){
+
+			int tamAux = elementos.length*2;
+
+			No[] arrayTemp = new No[tamAux];
+
+			//arrayTemp[0] = o;
+
+			arrayTemp = Arrays.copyOf(elementos, elementos.length);
+
+			elementos=arrayTemp;
+
+			arrayTemp=null;
+
+		}
+
+		System.arraycopy(elementos, 0, aux, 0, n.getRank()-1); //copia ate o anterior de n
+		aux[n.getRank()] = (No) o;
+		System.arraycopy(elementos, n.getRank(), aux, n.getRank()+1, elementos.length - n.getRank() );		elementos = aux;
+		aux = null;
 		
 	}
+	
 
 	@Override
 	public void insertAfter(No n, Object o) {
-		// TODO Auto-generated method stub
+No[] aux = null;
+		
+		//checa se o array estÃ¡ cheio e entao duplica
+		if (size() == (elementos.length -1)){
+
+			int tamAux = elementos.length*2;
+
+			No[] arrayTemp = new No[tamAux];
+
+			//arrayTemp[0] = o;
+
+			arrayTemp = Arrays.copyOf(elementos, elementos.length);
+
+			elementos=arrayTemp;
+
+			arrayTemp=null;
+
+		}
+		//System.arraycopy(elementos, 0, aux, 0, n.getRank()+1);
+		System.arraycopy(elementos, 0, aux, 0, n.getRank());//copia ate n
+		aux[n.getRank()+1] = (No) o;
+		System.arraycopy(elementos, n.getRank()+1, aux, n.getRank()+2, elementos.length - n.getRank() ); //preencher o resto do array
+		elementos = aux;
+		aux = null;
+		
+
 		
 	}
 
 	@Override
 	public void insertFirst(No o) {
 		No[] aux = null;
-		//if (isEmpty()) throw new ESequenciaVazia("A Sequencia está Vazia!");
+		//if (isEmpty()) throw new ESequenciaVazia("A Sequencia estÃ¡ Vazia!");
 		if (size() == (elementos.length -1)){
 			int tamAux = elementos.length*2;
 			No[] arrayTemp = new No[tamAux];
 			//arrayTemp[0] = o;
 			arrayTemp = Arrays.copyOf(elementos, elementos.length);
-			elemento=arrayTemp;
+			elementos=arrayTemp;
 			arrayTemp=null;
 		}
 
@@ -160,7 +208,7 @@ public class SequenciaArray implements iSequencia {
 	@Override
 	public void remove(No n) throws ESequenciaVazia {
 		if (isEmpty) 
-			throw new ESequenciaVazia("A Sequência está Vazia!"); 
+			throw new ESequenciaVazia("A SequÃªncia estÃ¡ Vazia!"); 
 		for (int i; i < size() ; i++) {
 			if
 		}
