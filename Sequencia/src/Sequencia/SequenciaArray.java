@@ -18,7 +18,7 @@ public class SequenciaArray implements iSequencia {
 	@Override
 	public No elemAtRank(int r) throws ESequenciaVazia {
 		if (isEmpty()) 
-			throw new ESequenciaVazia("A Sequência está vazia!");
+			throw new ESequenciaVazia("A SequÃªncia estÃ¡ vazia!");
 		for(int i=0; i<elementos.length; i++){
 			if(i==r){
 				return elementos[i];
@@ -38,7 +38,7 @@ public class SequenciaArray implements iSequencia {
 	public void insertAtRank(int r, Object o) {
 		No temp = null;
 		No aux = null;
-		if(r >=0 || r<= size()-1){//verifica se ele é valido	
+		if(r >=0 || r<= size()-1){//verifica se ele Ã© valido	
 			for(int i = 0; i < elementos.length; i++){
 				if (i == r){
 					temp = elementos[i];
@@ -115,7 +115,11 @@ public class SequenciaArray implements iSequencia {
 	public void insertBefore(No n, Object o) {
 		No[] aux = null;
 		
+<<<<<<< HEAD
 		//checa se o array está cheio e entao duplica
+=======
+		//checa se o array estÃ¡ cheio e entao duplica
+>>>>>>> 24b96cc67648258108cfc4fbe13c7ee358793f7d
 		if (size() == (elementos.length -1)){
 
 			int tamAux = elementos.length*2;
@@ -144,7 +148,11 @@ public class SequenciaArray implements iSequencia {
 	public void insertAfter(No n, Object o) {
 No[] aux = null;
 		
+<<<<<<< HEAD
 		//checa se o array está cheio e entao duplica
+=======
+		//checa se o array estÃ¡ cheio e entao duplica
+>>>>>>> 24b96cc67648258108cfc4fbe13c7ee358793f7d
 		if (size() == (elementos.length -1)){
 
 			int tamAux = elementos.length*2;
@@ -174,7 +182,11 @@ No[] aux = null;
 	@Override
 	public void insertFirst(No o) {
 		No[] aux = null;
+<<<<<<< HEAD
 		//if (isEmpty()) throw new ESequenciaVazia("A Sequencia está Vazia!");
+=======
+		//if (isEmpty()) throw new ESequenciaVazia("A Sequencia estÃ¡ Vazia!");
+>>>>>>> 24b96cc67648258108cfc4fbe13c7ee358793f7d
 		if (size() == (elementos.length -1)){
 			int tamAux = elementos.length*2;
 			No[] arrayTemp = new No[tamAux];
@@ -208,7 +220,11 @@ No[] aux = null;
 	@Override
 	public void remove(No n) throws ESequenciaVazia {
 		if (isEmpty) 
+<<<<<<< HEAD
 			throw new ESequenciaVazia("A Sequência está Vazia!"); 
+=======
+			throw new ESequenciaVazia("A SequÃªncia estÃ¡ Vazia!"); 
+>>>>>>> 24b96cc67648258108cfc4fbe13c7ee358793f7d
 		for (int i; i < size() ; i++) {
 			if
 		}

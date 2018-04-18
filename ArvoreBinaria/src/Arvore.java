@@ -11,14 +11,11 @@ public class Arvore implements iArvore {
 	
 	
 	@Override
-	public void inserir(Object n) {
-		if(raiz == null){
-			arvore[1] = new No(n, 1);
-		}else{
-			int indiceNovoItem = localInserir(1, n);
-			arvore[indiceNovoItem] = new No(n, indiceNovoItem);
-		}
-		
+	public void inserir(Object n) {		
+		int indiceNovoItem = localInserir(1, n);
+		arvore[indiceNovoItem] = new No(n, indiceNovoItem);
+		if(indiceNovoItem == 1)
+			raiz = arvore[1];
 	}
 
 	@Override
@@ -36,14 +33,18 @@ public class Arvore implements iArvore {
 	}
 
 	private int localInserir(int indiceAtual, Object valor){
+		
 		if(indiceAtual >= arvore.length){
 			duplicarArray();
 		}
 		if(arvore[indiceAtual] == null){
 			return indiceAtual;
 		}else{
-			if((Integer)arvore[indiceAtual].getValor() < (Integer)valor){
+			
+			//(arvore[indiceAtual].getValor() < .valor)
+			if((((Integer)arvore[indiceAtual].getValor()).compareTo((Integer)valor) < 0 )){
 				return localInserir((2*indiceAtual)+1, valor);
+				
 			}else{
 				return localInserir(indiceAtual*2, valor);
 			}
@@ -51,25 +52,39 @@ public class Arvore implements iArvore {
 		//return 0;			
 	}
 	
-	private No buscar(int indice, Object valor){
+	private Integer buscar(int indice, Object valor){
+		Integer retorno = null;
 		if(raiz != null){
-			if((Integer)arvore[indice].getValor() == (Integer)valor){
-				return arvore[indice];
+			//(Integer)arvore[indice].getValor() == (Integer)valor)
+			Integer temp = ((Integer)arvore[indice].getValor()); 
+			if(temp.compareTo((Integer)valor) == 0 ){
+				retorno = ((Integer)arvore[indice].getValor());
 			}else{
-				if((Integer)arvore[indice].getValor() < (Integer)valor)
-					buscar(indice * 2, valor);
+				if(temp.compareTo((Integer)valor) > 0 )
+					return buscar(indice * 2, valor);
 				else
-					buscar((2* indice)+1, valor);
+					return buscar((2* indice)+1, valor);
 			}
 		}
-		return null;
+		return retorno;
 	}
 	
 	@Override
-	public No buscar(Object n) {
+	public Integer buscar(Object n) {
 		return buscar(1,n);
+	}	
+	
+	public void Mostrar() {
+		for(int i=0; i<arvore.length; i++){
+			if(arvore[i]!=null)
+				System.out.println("Arvore:" + ((Integer)arvore[i].getValor()));
+			else
+				System.out.println("vazio");
+		}
 	}
 
-	
 
 }
+	 
+
+
