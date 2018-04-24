@@ -76,11 +76,37 @@ public class Arvore implements iArvore {
 	
 	public void Mostrar() {
 		for(int i=0; i<arvore.length; i++){
-			if(arvore[i]!=null)
-				System.out.println("Arvore:" + ((Integer)arvore[i].getValor()));
-			else
+			if(arvore[i]!=null){
+				
+				System.out.println("Arvore: " + ((Integer)arvore[i].getValor() ));
+			}else
 				System.out.println("vazio");
 		}
+	}
+	public String mostArvore (){
+		String arvoreBin = "";
+		int inicio=1;
+		int fim = 1;
+		while(inicio<arvore.length){
+			for(int i = inicio; i <= fim; i++){
+				if(inicio == 1){
+					arvoreBin = arvoreBin + ((Integer)arvore[1].getValor()) + "\n";
+				}else{
+					if(inicio == i){
+						arvoreBin = arvoreBin + ((Integer)arvore[1].getValor());
+					}else if(inicio != i && i != fim){
+						arvoreBin = arvoreBin + " " + ((Integer)arvore[1].getValor());
+					}else{
+						arvoreBin = arvoreBin + " " + ((Integer)arvore[1].getValor()) + "\n";
+					}
+				}
+			}
+			inicio = inicio * 2;
+			fim = inicio - 1;
+			System.out.println(arvoreBin);
+		}
+		
+		return arvoreBin;
 	}
 
 
